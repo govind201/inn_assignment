@@ -8,7 +8,7 @@ router.post('/',productComponents.postNewProduct);
 
 router.get('/:productId',productComponents.getProduct);
 
-router.patch('/:productId',productComponents.updateProduct);
+router.put('/:productId',productComponents.updateProduct);
 
 router.delete('/:productId',productComponents.deleteProduct);
 

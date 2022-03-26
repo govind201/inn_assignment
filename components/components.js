@@ -89,13 +89,14 @@ exports.updateProduct = (req,res,next)=>{
 	for(const ops of req.body){
 		updateOps[ops.propName] = ops.value;
 	}
-	Product.update({_id:id},{$set:updateOps})
+	Product.updateOne({_id:id},{$set:updateOps})
 		   .exec()
 		   .then(result=>{
-		   		sstatus(200).json({
+		   		res.status(200).json({
 		   			message:"Product Updated Successfully",
 		   		});
 		   })
+
 		   .catch(err=>{
 		   		console.log(err);
 		   		res.status(500).json(err=>{
