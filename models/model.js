@@ -8,7 +8,6 @@ const productSchema = mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-module.exports = Product;
 
 const cartSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
@@ -18,4 +17,7 @@ const cartSchema = mongoose.Schema({
 
 const Cart = mongoose.model('Order', cartSchema);
 
-module.exports = Cart;
+module.exports = {
+  Product,
+  Cart
+}

@@ -1,5 +1,5 @@
-const Cart = require('../models/model');
-const Product = require('../models/model');
+const {Cart} = require('../models/model');
+const {Product} = require('../models/model');
 const mongoose = require('mongoose');
 
 
@@ -58,6 +58,7 @@ exports.postNewProduct = (req,res,next)=>{
 
 exports.getProduct = (req,res,next)=>{
 	var id = req.params.productId;
+    console.log("give id", id);
 	Product.findById(id)
 		   .select('_id name price')
 		   .exec()
@@ -91,7 +92,7 @@ exports.updateProduct = (req,res,next)=>{
 	Product.update({_id:id},{$set:updateOps})
 		   .exec()
 		   .then(result=>{
-		   		res.status(200).json({
+		   		sstatus(200).json({
 		   			message:"Product Updated Successfully",
 		   		});
 		   })
