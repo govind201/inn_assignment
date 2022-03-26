@@ -110,7 +110,7 @@ exports.updateProduct = (req,res,next)=>{
 
 exports.deleteProduct = (req,res,next)=>{
 	const id = req.params.productId;
-	Product.remove({_id:id})
+	Product.deleteOne({_id:id})
 		   .exec()
 		   .then(result =>{
 		   		res.status(200).json({
@@ -124,6 +124,7 @@ exports.deleteProduct = (req,res,next)=>{
 		   		});
 		   });
 };
+
 
 exports.getAllOrders = (req,res,next)=>{
 	Cart.find()
@@ -210,7 +211,7 @@ exports.getOrder = (req,res,next)=>{
 
 exports.deleteOrder = (req,res,next)=>{
 	const orderId = req.params.orderId;
-	Cart.remove({_id:orderId})
+	Cart.deleteOne({_id:orderId})
 		 .exec()
 		 .then(result=>{
 		 	res.status(200).json({
