@@ -21,9 +21,6 @@ app.use(express.json()); // To parse post requests in express;
 app.use('/products',productRoutes);
 app.use('/orders',orderRoutes);
 
-// app.use(function (err, _req, res, _next) {
-//   res.status(500).send('Internal Server Error', err);
-// });
 
 app.get("/", (_, res) => {
     res.status(200).send("hello, home");
