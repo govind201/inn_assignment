@@ -4,8 +4,12 @@ const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const app = express();
 
+
+const DB_URL = process.env.DATABASE_URL || "mongodb://localhost:27017/ruth";
+
+
 mongoose
-  .connect('mongodb://localhost:27017/ruth', {
+  .connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
